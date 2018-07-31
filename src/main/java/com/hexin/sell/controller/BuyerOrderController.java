@@ -7,6 +7,7 @@ import com.hexin.sell.dto.OrderDto;
 import com.hexin.sell.enums.ResultEnum;
 import com.hexin.sell.exception.SellException;
 import com.hexin.sell.form.OrderForm;
+import com.hexin.sell.service.IBuyerServiceImpl;
 import com.hexin.sell.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ import java.util.Map;
 public class BuyerOrderController {
     @Autowired
     private IOrderService iOrderService;
+    @Autowired
+    private IBuyerServiceImpl buyerService;
 
     //创建订单
     @RequestMapping("/create")
@@ -82,8 +85,8 @@ public class BuyerOrderController {
             log.error("【查询订单详情】openid为空或orderId为空");
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
-        //todo 权限控制 根据openid
-        OrderDto orderDto = iOrderService.findOne(orderId);
+
+        OrderDto orderDto = buyerService.findOneOrder(openid,orderId);
         return ResultVOUtil.success(orderDto);
     }
 
@@ -97,9 +100,7 @@ public class BuyerOrderController {
             log.error("【查询订单详情】openid为空或orderId为空");
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
-        //todo 改进
-        OrderDto orderDto = iOrderService.findOne(orderId);
-        iOrderService.cancel(orderDto);
+        buyerService.cancelOrder(openid,orderId);
         return ResultVOUtil.success();
     }
 }
