@@ -36,7 +36,7 @@ public class WeChatController {
 
         //1.配置
         //2.方法
-        String url = projectUrlConfig.getWechatMpAuthorize() + "/sell/wechat/userInfo";
+        String url = projectUrlConfig.getWechatMpAuthorize() + "/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAuth2Scope.SNSAPI_BASE, URLEncoder.encode(returnUrl, "GBK"));
         return "redirect:" + redirectUrl;
     }

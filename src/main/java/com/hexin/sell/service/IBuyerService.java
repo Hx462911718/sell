@@ -7,7 +7,7 @@ import com.hexin.sell.dto.OrderDto;
  * @author hexin
  * @createDate 2018年07月31日 14:09:00
  */
-public interface IBuyerServiceImpl {
+public interface IBuyerService {
 
     OrderDto findOneOrder(String openid, String orderId);
 

@@ -7,7 +7,7 @@ import com.hexin.sell.dto.OrderDto;
 import com.hexin.sell.enums.ResultEnum;
 import com.hexin.sell.exception.SellException;
 import com.hexin.sell.form.OrderForm;
-import com.hexin.sell.service.IBuyerServiceImpl;
+import com.hexin.sell.service.IBuyerService;
 import com.hexin.sell.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class BuyerOrderController {
     @Autowired
     private IOrderService iOrderService;
     @Autowired
-    private IBuyerServiceImpl buyerService;
+    private IBuyerService buyerService;
 
     //创建订单
     @RequestMapping("/create")

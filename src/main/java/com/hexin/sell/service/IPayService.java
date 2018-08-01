@@ -1,6 +1,7 @@
 package com.hexin.sell.service;
 
 import com.hexin.sell.dto.OrderDto;
+import com.lly835.bestpay.model.PayResponse;
 
 /**
  * @author hexin
@@ -8,5 +9,7 @@ import com.hexin.sell.dto.OrderDto;
  */
 public interface IPayService {
 
-    void create (OrderDto orderDto);
+    PayResponse create (OrderDto orderDto);
+
+    PayResponse  notify(String notifyDate);
 }

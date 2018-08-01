@@ -3,7 +3,7 @@ package com.hexin.sell.service.impl;
 import com.hexin.sell.dto.OrderDto;
 import com.hexin.sell.enums.ResultEnum;
 import com.hexin.sell.exception.SellException;
-import com.hexin.sell.service.IBuyerServiceImpl;
+import com.hexin.sell.service.IBuyerService;
 import com.hexin.sell.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class BuyerServiceImpl implements IBuyerServiceImpl {
+public class BuyerServiceImpl implements IBuyerService {
     @Autowired
     private IOrderService orderService;
 
